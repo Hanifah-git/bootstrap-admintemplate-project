@@ -1,0 +1,118 @@
+Bootstrap Navbar Classes
+
+1. navbar-expand-lg
+Controls when the navbar changes between expanded (links visible) and collapsed (burger menu).
+lg means: keep links expanded on large screens and up, collapse them into a burger on smaller screens.
+Variants: navbar-expand-sm, navbar-expand-md, navbar-expand-lg, navbar-expand-xl.
+
+
+2. navbar-brand
+Used for your logo or site name inside the navbar.
+Automatically styled with padding and font weight so it stands out.
+Example:
+<a class="navbar-brand" href="#">MySite</a>
+
+
+3. navbar-collapse + collapse
+collapse → A Bootstrap utility class that hides content until it’s toggled.
+navbar-collapse → A collapse specifically styled for navbars.
+These two usually go together to wrap the menu items that should hide/show when clicking the burger button.
+Example:
+<div class="collapse navbar-collapse" id="navMenu">
+  <!-- nav links go here -->
+</div>
+
+4. navbar-nav 
+navbar-nav is a Bootstrap class used for the container of your navigation links inside a navbar.
+Typically, you wrap your <li> items inside a <ul class="navbar-nav">.
+It applies Bootstrap styling so your links look good horizontally on desktop and stack vertically on mobile (when the navbar collapses).
+
+<ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+</ul>
+5. nav-item
+Wraps each individual link (or dropdown) in the navbar.
+Provides spacing & alignment in the navbar layout.
+Example:
+<li class="nav-item">
+  <a class="nav-link" href="#">Home</a>
+</li>
+
+6. nav-link
+Styles the actual clickable link.
+Gives padding, color, hover effects, and active state styling.
+Works inside .nav-item.
+
+
+7. navbar-toggler (Burger Menu Button)
+A special button for toggling collapsed content on small screens.
+Usually paired with data-bs-toggle and data-bs-target to tell Bootstrap which menu to open/close.
+Example:
+<button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMenu">
+  <span class="navbar-toggler-icon"></span>
+</button>
+Bootstrap Data Attributes
+data-bs-toggle
+Tells Bootstrap which JavaScript behavior to activate.
+Common values:
+"collapse" → Show/hide target content
+"dropdown" → Toggle dropdown menu
+"modal" → Open modal
+In navbar: "collapse" is used to open/close the mobile menu.
+data-bs-target
+Points to the element that will be affected.
+Usually matches an ID in the target element.
+Example:
+data-bs-target="#navMenu"
+→ This will toggle the element with id="navMenu".
+Google Fonts in CSS
+
+
+8. carousel
+
+ <div id="sales" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner p-3">
+
+    <div class="carousel-item active">
+                                                  
+
+    </div>
+
+    <div class="carousel-item">
+                                                   
+
+    </div>
+
+                                               
+   <button type="button" class="carousel-control-prev" data-bs-target="#sales" data-bs-slide="prev">
+     <span class="carousel-control-prev-icon"></span>
+   </button>
+
+    <button type="button" class="carousel-control-next" data-bs-target="#sales" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+</div>
+
+
+
+To use a custom font from Google Fonts:
+Go to Google Fonts
+Choose a font (e.g., Poppins) → Click “Get Embed Code”
+Add this <link> in your <head>:
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+In your CSS:
+body {
+  font-family: 'Poppins', sans-serif;
+}
