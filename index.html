@@ -20,8 +20,12 @@
     <body>
 
         <!-- Start Site Setting -->
-        <div>
-
+        <div id="sitesettings" class="sitesettings">
+            <div class="sitesettings-item">
+                <a href="javascript:void(0);" id="sitetoggles" class="sitetoggles">
+                    <i class="fas fa-cog ani-rotates"></i>
+                </a>
+            </div>
         </div>
         <!-- End Site Setting -->
 
@@ -140,7 +144,7 @@
                                             <div class="input-group">
                                                 <input type="text" name="quicksearch" id="quicksearch" class="form-control border-0 shadow-none" placeholder="Search By Student ID"/>
                                                 <div class="input-group-append">
-                                                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#quicksearchmodal"><i class="fas fa-search"></i></button>
                                                 </div>
                                             </div>
                                         </form>
@@ -326,7 +330,7 @@
 
                         <div class="row">
 
-                            <div class="col-md-3 col-sm-6">
+                            <div class="col-md-3 col-sm-6 mb-3">
                                 <div class="card">
                                     <div class="card-body">
                                         <h6 class="card-title">Sales</h6>
@@ -599,14 +603,14 @@
 
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <h6 class="text-xs fw-bold text-primary text-uppercase mb-1">Users</h6>
+                                                <h6 class="text-xs fw-bold text-primary text-uppercase mb-1">Customers</h6>
                                             </div>
                                             <div class="col-auto">
                                                 <p class="h6 text-muted">Report</p>
                                             </div>
                                         </div>
-                                        <div>
-                                                <div>animation chart</div>
+                                        <div class="col-auto">
+                                            <div id="gaugecustomers" class="200x160px"></div>
                                         </div>
 
                                     </div>
@@ -625,8 +629,8 @@
                                                 <p class="h6 text-muted">Report</p>
                                             </div>
                                         </div>
-                                        <div>
-                                                <div>animation chart</div>
+                                        <div class="col-auto">
+                                            <div id="gaugeusers" class="200x160px""></div>
                                         </div>
 
                                     </div>
@@ -639,14 +643,14 @@
 
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <h6 class="text-xs fw-bold text-primary text-uppercase mb-1">Users</h6>
+                                                <h6 class="text-xs fw-bold text-primary text-uppercase mb-1">Employees</h6>
                                             </div>
                                             <div class="col-auto">
                                                 <p class="h6 text-muted">Report</p>
                                             </div>
                                         </div>
-                                        <div>
-                                                <div>animation chart</div>
+                                        <div class="col-auto">
+                                            <div id="gaugeemployees" class="200x160px"></div>
                                         </div>
 
                                     </div>
@@ -659,14 +663,14 @@
 
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <h6 class="text-xs fw-bold text-primary text-uppercase mb-1">Users</h6>
+                                                <h6 class="text-xs fw-bold text-primary text-uppercase mb-1">Investors</h6>
                                             </div>
                                             <div class="col-auto">
                                                 <p class="h6 text-muted">Report</p>
                                             </div>
                                         </div>
-                                        <div>
-                                                <div>animation chart</div>
+                                        <div class="col-auto">
+                                            <div id="gaugeinvestors" class="200x160px"></div>
                                         </div>
 
                                     </div>
@@ -721,8 +725,7 @@
                                         <h4 class="text-uppercase my-1">Revenue Sources</h6>
                                     </div>
                                     <div class="card-body">
-                                        <div>
-                                            <p>circle chart</p>
+                                        <div id="donutchart" style="width:100%;">
                                         </div>
                                         <div class="d-flex">
                                             <div>
@@ -770,11 +773,14 @@
                                                     <div class="dropdown-divider"></div>
                                                     <a href="javascript:void(0);" class="dropdown-item">View Report</a>
                                                 </div>
+
                                             </div>  
                                         </div>
-
+                                        <div class="card-body">
+                                            <div id="curve_chart" style="width:100%;"></div>
+                                        </div>
                                     </div>
-                                    <div class="card-body"></div>
+                                    
                                 </div>
                             </div>
 
@@ -906,7 +912,7 @@
                                         <div class="mt-3">
                                             <div class="d-flex text-muted">
                                                 <p>Quantity</p>
-                                                <p class="ms-auto">120.8%</p>
+                                                <p class="ms-auto">120.8%</p >
                                             </div>
                                             <div class="progress">
                                                 <div class="progress-bar bg-info" style="width:80%" aria-valuenow="80" aria-valuemax="100" aria-valuemin="0"></div>
@@ -916,11 +922,224 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-8 mb-3"></div>
+                            <!-- Start Project Status -->
+                            <div class="col-md-8 mb-3">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-uppercase">Project Status</h4>
+                                        <div><table class="table">
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center py-2">
+                                                        <img src="assets/img/clients/client1.png"  class="me-3" width="100" alt="client1"/>
+                                                        <div class="text-center">
+                                                            <p class="mb-0">Company</p>
+                                                            <h6 class="fw-bold">Sony Electronic</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <p class="text-muted">Sales</p>
+                                                    <h6 class="fw-bold">$ 3250</h6>
+                                                </td>
+                                                <td class="text-center">
+                                                    <p class="text-muted">Status</p>
+                                                    <h6 class="fw-bold text-success">88%</h6>
+                                                </td>
+                                                <td class="text-center">
+                                                    <p class="text-muted">Deadline</p>
+                                                    <h6 class="fw-bold">10 June 2023</h6>
+                                                </td>
+                                                <td class="text-center">
+                                                    <button type="button" class="btn btn-sm btn-outline-secondary mt-2">
+                                                        <i class="fas fa-edit"></i>Edit
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center py-2">
+                                                        <img src="assets/img/clients/client2.png"  class="me-3" width="100" alt="client1"/>
+                                                        <div class="text-center">
+                                                            <p class="mb-0">Company</p>
+                                                            <h6 class="fw-bold">Mi Electronic</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <p class="text-muted">Sales</p>
+                                                    <h6 class="fw-bold">$ 3250</h6>
+                                                </td>
+                                                <td class="text-center">
+                                                    <p class="text-muted">Status</p>
+                                                    <h6 class="fw-bold text-success">88%</h6>
+                                                </td>
+                                                <td class="text-center">
+                                                    <p class="text-muted">Deadline</p>
+                                                    <h6 class="fw-bold">10 June 2023</h6>
+                                                </td>
+                                                <td class="text-center">
+                                                    <button type="button" class="btn btn-sm btn-outline-secondary mt-2">
+                                                        <i class="fas fa-edit"></i>Edit
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center py-2">
+                                                        <img src="assets/img/clients/client3.png"  class="me-3" width="100" alt="client1"/>
+                                                        <div class="text-center">
+                                                            <p class="mb-0">Company</p>
+                                                            <h6 class="fw-bold">Vivo Electronic</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <p class="text-muted">Sales</p>
+                                                    <h6 class="fw-bold">$ 3250</h6>
+                                                </td>
+                                                <td class="text-center">
+                                                    <p class="text-muted">Status</p>
+                                                    <h6 class="fw-bold text-success">88%</h6>
+                                                </td>
+                                                <td class="text-center">
+                                                    <p class="text-muted">Deadline</p>
+                                                    <h6 class="fw-bold">10 June 2023</h6>
+                                                </td>
+                                                <td class="text-center">
+                                                    <button type="button" class="btn btn-sm btn-outline-secondary mt-2">
+                                                        <i class="fas fa-edit"></i>Edit
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center py-2">
+                                                        <img src="assets/img/clients/client4.png"  class="me-3" width="100" alt="client1"/>
+                                                        <div class="text-center">
+                                                            <p class="mb-0">Company</p>
+                                                            <h6 class="fw-bold">Oppo Electronic</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <p class="text-muted">Sales</p>
+                                                    <h6 class="fw-bold">$ 3250</h6>
+                                                </td>
+                                                <td class="text-center">
+                                                    <p class="text-muted">Status</p>
+                                                    <h6 class="fw-bold text-success">88%</h6>
+                                                </td>
+                                                <td class="text-center">
+                                                    <p class="text-muted">Deadline</p>
+                                                    <h6 class="fw-bold">10 June 2023</h6>
+                                                </td>
+                                                <td class="text-center">
+                                                    <button type="button" class="btn btn-sm btn-outline-secondary mt-2">
+                                                        <i class="fas fa-edit"></i>Edit
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </table></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Project Status -->
                         </div>
                         <!-- End Analysis Trend -->
-
-
+                        <div class="row">
+                        <!-- Start Todo List -->
+                        
+                            <div class="col-md-4 col-sm-12 mb-3">
+                                <div class="card shadow">
+                                    <div class="row card-body align-items-center">
+                                        <div class="col">
+                                            <h4 class="mt-2 text-uppercase">To-Do List</h4>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="dropdown">
+                                                <a href="#" class="text-dark" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                </a>
+                                                <div class="dropdown-menu shadow">
+                                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item">Something else here</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <form class="me-auto px-2 mt-3" action="" method="">
+                                            <div class="input-group">
+                                                <input type="text" name="tdlist" id="tdlist" class="form-control form-control-sm" placeholder="Add list here..."/>
+                                                <div class="input-group-append">
+                                                    <button type="button" class="btn btn-primary btn-sm form-group-text">Add To List</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <p class="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                        
+                                        <ul class="list-unstyled">
+                                            <li class="d-flex">
+                                                <label>
+                                                    <input type="checkbox" class="checkbox"/><span class=" fw-bold ms-2">when an unknown printer took a gallery of type</span>
+                                                </label>
+                                                <i class="fas fa-trash alt ms-auto"></i>
+                                            </li>
+                                            <li class="d-flex mt-1">
+                                                <label>
+                                                    <input type="checkbox" class="checkbox"/><span class=" fw-bold ms-2">when an unknown printer took a gallery of type</span>
+                                                </label>
+                                                <i class="fas fa-trash alt ms-auto"></i>
+                                            </li>
+                                            <li class="d-flex mt-1">
+                                                <label>
+                                                    <input type="checkbox" class="checkbox"/><span class=" fw-bold ms-2">when an unknown printer took a gallery of type</span>
+                                                </label>
+                                                <i class="fas fa-trash alt ms-auto"></i>
+                                            </li>
+                                            <li class="d-flex mt-1">
+                                                <label>
+                                                    <input type="checkbox" class="checkbox"/><span class=" fw-bold ms-2">when an unknown printer took a gallery of type</span>
+                                                </label>
+                                                <i class="fas fa-trash alt ms-auto"></i>
+                                            </li>
+                                            <li class="d-flex mt-1">
+                                                <label>
+                                                    <input type="checkbox" class="checkbox"/><span class=" fw-bold ms-2">when an unknown printer took a gallery of type</span>
+                                                </label>
+                                                <i class="fas fa-trash alt ms-auto"></i>
+                                            </li>
+                                            <li class="d-flex mt-1">
+                                                <label>
+                                                    <input type="checkbox" class="checkbox"/><span class=" fw-bold ms-2">when an unknown printer took a gallery of type</span>
+                                                </label>
+                                                <i class="fas fa-trash alt ms-auto"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        <!-- End Todo List -->
+                        <!-- Start Illustrations -->
+                            <div class="col-md-8 col-sm-12 mb-3">
+                                <div class="card shadow">
+                                    <div class="card-header">
+                                        <h4 class="card-title text-uppercase">Illustrations</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="assets/img/etc/students.png" class="d-block mx-auto" width="150" alt="students"/>
+                                        <p class="mt-3 h6 text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                        <p class="text-primary">Browse illustrations on more</p>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- End Illustrations -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -930,15 +1149,74 @@
 
         <!-- Start Footer Section -->
         <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-10 col-md-9 ms-auto">
+                        <div class="row border-top pt-3 mt-3">
+                            <div class="col-md-6 text-center">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item me-2">
+                                        <a href="javascript:void(0);">Data Land Technology Co.,Ltd</a>
+                                    </li>
 
+                                    <li class="list-inline-item me-2">
+                                        <a href="javascript:void(0);">About</a>
+                                    </li>
+
+                                    <li class="list-inline-item me-2">
+                                        <a href="javascript:void(0);">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <p>&copy; <span id="getyear">2000</span>Copyright. All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
         <!-- End Footer Section -->
 
         <!-- Start Right Navbar -->
-        <div>
-
+        <div class="right-panels">
+            <h6>Custom your template</h6>
+            <p class="small">Hi!! Here you can change your theme</p>
+            <hr/>
+            <div class="themecolors">
+                <a href="javascript:void(0);"><i class="fas fa-square text-primary shadow fa-lg"></i></a>
+                <a href="javascript:void(0);"><i class="fas fa-square text-secondary shadow fa-lg"></i></a>
+                <a href="javascript:void(0);"><i class="fas fa-square text-info shadow fa-lg"></i></a>
+                <a href="javascript:void(0);"><i class="fas fa-square text-success shadow fa-lg"></i></a>
+                <a href="javascript:void(0);"><i class="fas fa-square text-warning shadow fa-lg"></i></a>
+                <a href="javascript:void(0);"><i class="fas fa-square text-danger shadow fa-lg"></i></a>
+                <a href="javascript:void(0);"><i class="fas fa-square text-muted shadow fa-lg"></i></a>
+                <a href="javascript:void(0);"><i class="fas fa-square text-white shadow fa-lg"></i></a>
+                <a href="javascript:void(0);"><i class="fas fa-square text-dark shadow fa-lg"></i></a>
+                <a href="javascript:void(0);"><i class="fas fa-square text-light shadow fa-lg"></i></a>
+            </div>
         </div>
         <!-- End Right Navbar -->
+
+        <!-- Start Modal Area -->
+
+        <div id="quicksearchmodal" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h6 class="modal-title">Result</h6>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="javascript:void(0);">WDF 1001</a></li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer"></div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal Area -->
         
 
         <!-- bootstrap css1 js1 -->
@@ -947,6 +1225,11 @@
         <script src="./assets/libs/jquery/jquery-3.6.2.min.js" type="text/javascript"></script>
         <!-- jquery ui css1 js1 -->
         <script src="./assets/libs/jquery-ui-1.13.2.custom/jquery-ui.min.js" type="text/javascript"></script>
+        <!-- google chart js1 -->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <!-- Raphael must be included before justgage -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.2.9/justgage.min.js"></script>
         <!-- lightbox2 css1 js1 -->
         <script src="./assets/libs/lightbox2-dev/dist/js/lightbox.min.js" type="text/javascript"></script>
         <!-- custom js -->
